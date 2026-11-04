@@ -3,14 +3,24 @@
 #include <vcl.h>
 #pragma hdrstop
 //---------------------------------------------------------------------------
-USEFORM("Unit1.cpp", Form1);
+USEFORM("UMenu.cpp", FormMenu);
+USEFORM("UBukaToko.cpp", FormBukaToko);
+USEFORM("UPengadaan.cpp", FormPengadaan);
+USEFORM("UKasir.cpp", FormKasir);
+USEFORM("UTutupToko.cpp", FormTutupToko);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
         try
         {
                  Application->Initialize();
-                 Application->CreateForm(__classid(TForm1), &Form1);
+                 Application->Title = "Apotek Salwa";
+                 // Form pertama = form utama (Menu Utama)
+                 Application->CreateForm(__classid(TFormMenu), &FormMenu);
+                 Application->CreateForm(__classid(TFormBukaToko), &FormBukaToko);
+                 Application->CreateForm(__classid(TFormPengadaan), &FormPengadaan);
+                 Application->CreateForm(__classid(TFormKasir), &FormKasir);
+                 Application->CreateForm(__classid(TFormTutupToko), &FormTutupToko);
                  Application->Run();
         }
         catch (Exception &exception)
